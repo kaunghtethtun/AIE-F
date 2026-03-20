@@ -1,0 +1,49 @@
+python slide-code/class-01/assignment-1/hybrid-eliza-multi.py --mode train --lang mya --data slide-code/class-01/assignment-1/final.csv --tokenizer myword
+/home/phantom/Documents/AI_env/lib/python3.10/site-packages/google/api_core/_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/LULab/myNLP-Tokenization/resolve/main/Models/dict_ver1/unigram-word.bin
+Retrying in 1s [Retry 1/5].
+Traceback (most recent call last):
+  File "/home/phantom/Desktop/Git/AIE-F/slide-code/class-01/assignment-1/hybrid-eliza-multi.py", line 397, in <module>
+    main()
+  File "/home/phantom/Desktop/Git/AIE-F/slide-code/class-01/assignment-1/hybrid-eliza-multi.py", line 373, in main
+    eliza = HybridEliza(lang=args.lang, model_path=args.model_path, tokenizer_name=args.tokenizer,
+  File "/home/phantom/Desktop/Git/AIE-F/slide-code/class-01/assignment-1/hybrid-eliza-multi.py", line 155, in __init__
+    self._tokenize_fn = self._build_tokenizer()
+  File "/home/phantom/Desktop/Git/AIE-F/slide-code/class-01/assignment-1/hybrid-eliza-multi.py", line 166, in _build_tokenizer
+    return self._init_myword()
+  File "/home/phantom/Desktop/Git/AIE-F/slide-code/class-01/assignment-1/hybrid-eliza-multi.py", line 224, in _init_myword
+    tok = WordTokenizer()
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/myword/tokenizer.py", line 222, in __init__
+    self.unigram_word_bin = cached_path(f"{HF_myWord_DICT_REPO}/unigram-word.bin")
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/cached_path/_cached_path.py", line 211, in cached_path
+    file_path, etag = get_from_cache(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/cached_path/_cached_path.py", line 319, in get_from_cache
+    return hf_get_from_cache(url, cache_dir), None
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/cached_path/schemes/hf.py", line 60, in hf_get_from_cache
+    return hf_hub_download(model_identifier, filename, cache_dir)
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/cached_path/schemes/hf.py", line 36, in hf_hub_download
+    hf_hub.hf_hub_download(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 986, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1119, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1653, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1576, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 559, in http_backoff
+    return next(
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 467, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/home/phantom/Documents/AI_env/lib/python3.10/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.

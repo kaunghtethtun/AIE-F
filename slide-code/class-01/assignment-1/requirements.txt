@@ -1,0 +1,14 @@
+# Tokenizer dependencies for hybrid-eliza-multi.py
+#
+# Install via git (recommended for oppaWord & myWord):
+#   git clone git@github.com:ye-kyaw-thu/oppaWord.git
+#   git clone git@github.com:ye-kyaw-thu/myWord.git
+#
+# Optional pip installs (only if you prefer pip packages):
+#   pip install mmdt-tokenizer
+#   pip install myword
+#
+# Note: oppaWord and myWord are typically used via their own CLI scripts.
+
+mmdt-tokenizer
+myword
