@@ -200,7 +200,7 @@ def launch_custom_ui(
 
 # function to run chat with default values
 def main():
-    run_chat(checkpoint_path="../checkpoints/BiLSTM_model.pth", language="mm")
+    run_chat(checkpoint_path="./checkpoints/bilstm_smaller_params.pth", language="mm")
 
 # run the script
 if __name__ == "__main__":

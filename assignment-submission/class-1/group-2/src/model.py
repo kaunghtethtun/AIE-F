@@ -32,11 +32,11 @@ class EmotionalBiLSTM(nn.Module):
     def __init__(
         self,
         vocab_size,
-        embed_dim=512,
-        hidden_dim=256,
+        embed_dim=256,
+        hidden_dim=128,
         output_dim=6,
         num_layers=2,
-        dropout=0.2,
+        dropout=0.3,
         pad_idx=0,
         use_attention=True,
     ):

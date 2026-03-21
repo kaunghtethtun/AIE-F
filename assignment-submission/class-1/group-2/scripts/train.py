@@ -33,19 +33,19 @@ def run_train(
     text_col="text",                # CLI arg passed with --text_col
     label_col="label",              # CLI arg passed with --label_col
     seed=42,                        # CLI arg passed with --seed
-    lr=0.001,                       # CLI arg passed with --lr
+    lr=5e-4,                        # CLI arg passed with --lr
     show_shape_checks=False,        # NOT PASSABLE
-    use_char_ngrams: bool = False,  # CLI arg passed with --use_char_ngrams / --no-use_char_ngrams
+    use_char_ngrams: bool = True,   # CLI arg passed with --use_char_ngrams / --no-use_char_ngrams
     ngram_min: int = 2,             # CLI arg passed with --ngram_min
-    ngram_max: int = 3,             # CLI arg passed with --ngram_max
-    weight_decay: float = 1e-5,     # CLI arg passed with --weight_decay
-    patience: int = 4,              # CLI arg passed with --patience
+    ngram_max: int = 2,             # CLI arg passed with --ngram_max
+    weight_decay: float = 1e-3,     # CLI arg passed with --weight_decay
+    patience: int = 10,             # CLI arg passed with --patience
     max_grad_norm: float = 1.0,     # CLI arg passed with --max_grad_norm
     use_attention: bool = True,     # CLI arg passed with --use_attention / --no-use_attention
-    embed_dim: int = 512,           # CLI arg passed with --embed_dim
-    hidden_dim: int = 256,          # CLI arg passed with --hidden_dim
+    embed_dim: int = 256,           # CLI arg passed with --embed_dim
+    hidden_dim: int = 128,          # CLI arg passed with --hidden_dim
     num_layers: int = 2,            # CLI arg passed with --num_layers
-    dropout: float = 0.2,           # CLI arg passed with --dropout
+    dropout: float = 0.3,           # CLI arg passed with --dropout
     pad_idx: int = 0,               # CLI arg passed with --pad_idx
     max_vocab: int = 5000,          # CLI arg passed with --max_vocab
 ):
@@ -233,10 +233,10 @@ def main():
     run_train(
         ## CHANGE HERE: change default values
         data_path="../data/merged/Combined.csv",
-        checkpoint_path="../checkpoints/BiLSTM_model.pth",
+        checkpoint_path="../checkpoints/bilstm_smaller_params.pth",
         epochs=100,
         batch_size=32,
-        val_split=0.1,
+        val_split=0.2,
         max_len=50,
     )
 

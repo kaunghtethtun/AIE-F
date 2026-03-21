@@ -34,7 +34,7 @@ def main():
     )
     parser.add_argument(
         "--checkpoint_path",
-        default="./checkpoints/bilstm-attention-model.pth",
+        default="./checkpoints/bilstm_smaller_params.pth",
         help="checkpoint path for train save / eval load / chat load",
     )
 
@@ -43,10 +43,10 @@ def main():
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--val_split", type=float, default=0.2)
     parser.add_argument("--max_len", type=int, default=50)
-    parser.add_argument("--lr", type=float, default=0.001)
+    parser.add_argument("--lr", type=float, default=5e-4)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--weight_decay", type=float, default=1e-5)
-    parser.add_argument("--patience", type=int, default=4)
+    parser.add_argument("--weight_decay", type=float, default=1e-3)
+    parser.add_argument("--patience", type=int, default=10)
     parser.add_argument("--max_grad_norm", type=float, default=1.0)
 
     # data / preprocessing
@@ -57,11 +57,11 @@ def main():
     parser.add_argument(
         "--use_char_ngrams",
         action=argparse.BooleanOptionalAction,
-        default=False,
-        help="append char n-grams to token lists (default: off)",
+        default=True,
+        help="append char n-grams to token lists (default: on)",
     )
     parser.add_argument("--ngram_min", type=int, default=2)
-    parser.add_argument("--ngram_max", type=int, default=3)
+    parser.add_argument("--ngram_max", type=int, default=2)
 
     # model (defaults match src/model.py when wrapper omits them from arguments)
     parser.add_argument(
@@ -70,10 +70,10 @@ def main():
         default=True,
         help="masked attention pooling after lstm (default: on)",
     )
-    parser.add_argument("--embed_dim", type=int, default=512)
-    parser.add_argument("--hidden_dim", type=int, default=256)
+    parser.add_argument("--embed_dim", type=int, default=256)
+    parser.add_argument("--hidden_dim", type=int, default=128)
     parser.add_argument("--num_layers", type=int, default=2)
-    parser.add_argument("--dropout", type=float, default=0.2)
+    parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument("--pad_idx", type=int, default=0)
 
     # chat-only

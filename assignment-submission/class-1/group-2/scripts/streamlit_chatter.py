@@ -16,8 +16,8 @@ def _env(name: str, default: str) -> str:
     return os.environ.get(name, default)
 
 
-CHECKPOINT = _env("CHAT_CHECKPOINT", "../checkpoints/BiLSTM_model.pth")
-STOPWORDS = _env("CHAT_STOPWORDS", "../data/stopwords.txt")
+CHECKPOINT = _env("CHAT_CHECKPOINT", "./checkpoints/bilstm_smaller_params.pth")
+STOPWORDS = _env("CHAT_STOPWORDS", "./data/stopwords.txt")
 LANGUAGE = _env("CHAT_LANGUAGE", "mm")
 
 

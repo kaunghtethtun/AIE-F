@@ -153,8 +153,8 @@ def run_eval(
 def main():
     run_eval(
         ## CHANGE HERE: change default values
-        checkpoint_path="../checkpoints/BiLSTM_model.pth",
-        data_csv="../data/merged/Combined.csv",
+        checkpoint_path="./checkpoints/bilstm_smaller_params.pth",
+        data_csv="./data/merged/Combined.csv",
         batch_size=32,
     )
 

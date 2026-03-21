@@ -162,8 +162,8 @@ def parse_args():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--lang", default="mm", choices=["en", "mm"])
-    parser.add_argument("--checkpoint_path", default="../checkpoints/BiLSTM_model.pth")
-    parser.add_argument("--stopwords_path", default="../data/stopwords.txt")
+    parser.add_argument("--checkpoint_path", default="./checkpoints/bilstm_smaller_params.pth")
+    parser.add_argument("--stopwords_path", default="./data/stopwords.txt")
     return parser.parse_args()
 
 
