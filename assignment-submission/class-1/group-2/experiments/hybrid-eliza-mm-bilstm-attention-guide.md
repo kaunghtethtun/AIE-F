@@ -4,7 +4,7 @@ This file explains how `hybrid-eliza-mm-bilstm-attention.py` works, from text in
 
 ## 1. Purpose of the Script
 
-`eliza_experiments/hybrid-eliza-mm-bilstm-attention.py` is a hybrid chatbot:
+`experiments/hybrid-eliza-mm-bilstm-attention.py` is a hybrid chatbot:
 
 - Rule-based ELIZA part:
   generates the reply text using regex patterns and reflection rules.
@@ -445,7 +445,7 @@ If `--mode train`:
 Example:
 
 ```bash
-python eliza_experiments/hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --data data/merged/Combined.csv
+python experiments/hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --data data/merged/Combined.csv
 ```
 
 ## 24. Chat Mode
@@ -463,7 +463,7 @@ If `--mode chat`:
 Example:
 
 ```bash
-python eliza_experiments/hybrid-eliza-mm-bilstm-attention.py --mode chat --lang mm
+python experiments/hybrid-eliza-mm-bilstm-attention.py --mode chat --lang mm
 ```
 
 ## 25. Output During Chat
@@ -522,5 +522,5 @@ If you want to improve results further without changing model family, tune:
 Good starting point:
 
 ```bash
-python eliza_experiments/hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --data data/merged/Combined.csv --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 2 --dropout 0.35 --weight_decay 0.0001 --patience 4
+python experiments/hybrid-eliza-mm-bilstm-attention.py --mode train --lang mm --data data/merged/Combined.csv --epochs 20 --lr 0.0007 --hidden_dim 96 --num_layers 2 --dropout 0.35 --weight_decay 0.0001 --patience 4
 ```

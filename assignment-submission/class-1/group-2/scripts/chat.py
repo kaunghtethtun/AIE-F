@@ -33,7 +33,7 @@ def resolve_project_path(path: str) -> str:
     return str((root / p).resolve())
 
 
-# condensed palette/fonts from eliza_experiments/burmese_chat_ui.py for streamlit injection
+# condensed palette/fonts from experiments/burmese_chat_ui.py for streamlit injection
 STREAMLIT_CHAT_CSS = """
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
@@ -184,7 +184,7 @@ def launch_streamlit_ui(
     )
 
 
-# function to start custom html/http ui (eliza_experiments/burmese_chat_ui.py page + modular backend)
+# function to start custom html/http ui (experiments/burmese_chat_ui.py page + modular backend)
 def launch_custom_ui(
     checkpoint_path: str,
     stopwords_path: str = DEFAULT_STOPWORDS_PATH,

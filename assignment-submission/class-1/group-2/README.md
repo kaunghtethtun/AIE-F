@@ -75,7 +75,7 @@ In short: `group2-hybrid-eliza.py` starts the run; `scripts/*.py` control train/
 You can run a separate local browser chat UI for the Burmese Hybrid ELIZA bot with:
 
 ```bash
-python eliza/burmese_chat_ui.py
+python experiments/burmese_chat_ui.py
 ```
 
 Then open `http://127.0.0.1:8765` in your browser.
@@ -83,7 +83,7 @@ Then open `http://127.0.0.1:8765` in your browser.
 Optional:
 
 ```bash
-python eliza/burmese_chat_ui.py --host 0.0.0.0 --port 9000 --model_path /path/to/eliza_eq_mm_lstm.pth
+python experiments/burmese_chat_ui.py --host 0.0.0.0 --port 9000 --model_path /path/to/eliza_eq_mm_lstm.pth
 ```
 
 If no `.pth` checkpoint is available yet, the UI still works in rule-based mode and continues chatting in Burmese.
@@ -131,6 +131,17 @@ If no `.pth` checkpoint is available yet, the UI still works in rule-based mode 
 
 
 
+
+Train with default data file, parameters and output  to ddefault dir 
+```bash
+python group2-hybrid-eliza.py --mode train
+```
+this is what outputs ./checkpoints/bilstm_smaller_params.pth
+
+```bash
+python group2-hybrid-eliza.py --mode train --embed
+```
+bilstm_larger_params.pth
 
 ## Sources
 

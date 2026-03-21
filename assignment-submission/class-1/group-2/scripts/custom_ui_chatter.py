@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Local HTTP chat UI (HTML/CSS from eliza_experiments/burmese_chat_ui.py) + modular BiLSTM + eliza (scripts/chat.py)."""
+"""Local HTTP chat UI (HTML/CSS from experiments/burmese_chat_ui.py) + modular BiLSTM + eliza (scripts/chat.py)."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 # reuse full page from experiments (same HTML/JS/CSS)
-sys.path.insert(0, str(ROOT_DIR / "eliza_experiments"))
+sys.path.insert(0, str(ROOT_DIR / "experiments"))
 import burmese_chat_ui as _burmese_ui  # noqa: E402
 
 render_page = _burmese_ui.render_page

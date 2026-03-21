@@ -18,7 +18,7 @@ from src.vocab_builder import build_vocab, build_label_map
 def drop_invalid_supervised_rows(
     df: pd.DataFrame, text_col: str, label_col: str
 ) -> pd.DataFrame:
-    # drop rows with missing text/label or non-numeric labels (same idea as eliza_experiments dropna + astype)
+    # drop rows with missing text/label or non-numeric labels (same idea as experiments/ dropna + astype)
     out = df.dropna(subset=[text_col, label_col]).copy()
     out[label_col] = pd.to_numeric(out[label_col], errors="coerce")
     out = out.dropna(subset=[label_col]).copy()
