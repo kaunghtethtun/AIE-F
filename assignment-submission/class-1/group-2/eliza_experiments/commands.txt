@@ -8,6 +8,4 @@ python hybrid-eliza-mm-lstm.py --lang mm --mode chat
 ----------------------------------
 for final eliza model version
 
-python hybrid-eliza-mm-lstm.py --lang mm --mode train --data .\data\merged\Combined.csv 
-
 python hybrid-eliza-improve-ver1.py --lang mm --mode train --data .\data\merged_preprocessed\data_after_downsampling.csv --model_path .\eliza\eliza_eq_mm_improve_v1.pth
