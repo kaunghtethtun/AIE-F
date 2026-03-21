@@ -82,7 +82,11 @@ python eliza/burmese_chat_ui.py --host 0.0.0.0 --port 9000 --model_path /path/to
 
 If no `.pth` checkpoint is available yet, the UI still works in rule-based mode and continues chatting in Burmese.
 
-## Sources:
+## Sources
+
+- Unicode Myanmar script blocks:
+    - https://www.unicode.org/charts/PDF/U1000.pdf
+    - https://www.unicode.org/charts/PDF/UAA60.pdf
 - Burmese grammar: https://online.fliphtml5.com/rrlzh/mbir/#p=1
 - Rabbit Zawgyi to Unicode Converter: https://github.com/Rabbit-Converter/Rabbit-Python 
 - MMDT Tokenizer: https://github.com/Myanmar-Data-Tech/mmdt-tokenizer

@@ -18,8 +18,8 @@ from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parent
 print(BASE_DIR)
-PREFERRED_MODULE_PATH = BASE_DIR / "hybrid-eliza-improve-ver1.py"
-FALLBACK_MODULE_PATH = BASE_DIR / "hybrid-eliza-mm-lstm.py"
+PREFERRED_MODULE_PATH = BASE_DIR / "hybrid-eliza-improved-v1.0.py"
+FALLBACK_MODULE_PATH = BASE_DIR / "hybrid-eliza-mm-bilstm-attention.py"
 MODULE_PATH = PREFERRED_MODULE_PATH if PREFERRED_MODULE_PATH.exists() else FALLBACK_MODULE_PATH
 MYANMAR_TOKEN_RE = re.compile(r"[\u1000-\u109F\uAA60-\uAA7F]+|[a-zA-Z0-9]+")
 

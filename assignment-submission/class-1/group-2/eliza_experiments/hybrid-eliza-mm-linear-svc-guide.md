@@ -350,4 +350,3 @@ In the current implementation:
 6. Predict emotion
 7. Print both results
 8. Repeat until exit
-

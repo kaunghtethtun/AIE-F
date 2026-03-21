@@ -411,7 +411,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--lang", default="mm", choices=["en", "mm"])
     parser.add_argument("--mode", default="chat", choices=["chat", "train"])
-    parser.add_argument("--data", default="./../data/merged_preporcessed/data_before_downsampling.csv")
+    parser.add_argument("--data", default="./../data/merged/Combined.csv")
     parser.add_argument("--model_path", default=None)
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--batch_size", type=int, default=32)
