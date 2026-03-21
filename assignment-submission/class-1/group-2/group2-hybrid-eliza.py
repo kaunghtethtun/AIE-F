@@ -35,7 +35,7 @@ def main():
     )
     parser.add_argument(
         "--data_path",
-        default="./data/merged/Combined.csv",
+        default="./data/merged_preprocessed/data_after_downsampling.csv",
         help="csv for train; csv for eval (same flag)",
     )
     parser.add_argument(
