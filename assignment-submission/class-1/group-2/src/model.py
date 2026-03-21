@@ -38,7 +38,7 @@ class EmotionalBiLSTM(nn.Module):
         num_layers=1,
         dropout=0.2,
         pad_idx=0,
-        use_attention=False,
+        use_attention=True,
     ):
         super().__init__()
 

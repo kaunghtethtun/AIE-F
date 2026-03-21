@@ -20,27 +20,34 @@ from src.model import EmotionalBiLSTM
 from src.prep_data import prepare_train_val_data
 
 
-# function to run model training
+# function to run model training (see group2-hybrid-eliza.py --mode train)
 def run_train(
-    data_path,          # passable from arguments in CLI
-    checkpoint_path,    # passable from arguments in CLI
-    epochs,             # passable from arguments in CLI
-    batch_size,         # passable from arguments in CLI
-    val_split,          # passable from arguments in CLI
-    max_len,            # passable from arguments in CLI
-    tokenized_output_path=None,
-    stopwords_path="../data/stopwords.txt",
-    text_col="text",
-    label_col="label",
-    seed=42,
-    lr=0.001,
-    show_shape_checks=False,
-    use_char_ngrams: bool = False,
-    ngram_min: int = 2,
-    ngram_max: int = 3,
-    weight_decay: float = 1e-4,
-    patience: int = 4,
-    max_grad_norm: float = 1.0,
+    data_path,                      # CLI arg passed with --data_path
+    checkpoint_path,                # CLI arg passed with --checkpoint_path
+    epochs,                         # CLI arg passed with --epochs
+    batch_size,                     # CLI arg passed with --batch_size
+    val_split,                      # CLI arg passed with --val_split
+    max_len,                        # CLI arg passed with --max_len
+    tokenized_output_path=None,     # not in wrapper; optional debug export path
+    stopwords_path="../data/stopwords.txt",  # CLI arg passed with --stopwords_path
+    text_col="text",                # CLI arg passed with --text_col
+    label_col="label",              # CLI arg passed with --label_col
+    seed=42,                        # CLI arg passed with --seed
+    lr=0.001,                       # CLI arg passed with --lr
+    show_shape_checks=False,        # NOT PASSABLE
+    use_char_ngrams: bool = False,  # CLI arg passed with --use_char_ngrams / --no-use_char_ngrams
+    ngram_min: int = 2,             # CLI arg passed with --ngram_min
+    ngram_max: int = 3,             # CLI arg passed with --ngram_max
+    weight_decay: float = 1e-4,     # CLI arg passed with --weight_decay
+    patience: int = 4,              # CLI arg passed with --patience
+    max_grad_norm: float = 1.0,     # CLI arg passed with --max_grad_norm
+    use_attention: bool = True,     # CLI arg passed with --use_attention / --no-use_attention
+    embed_dim: int = 128,           # CLI arg passed with --embed_dim
+    hidden_dim: int = 64,           # CLI arg passed with --hidden_dim
+    num_layers: int = 1,            # CLI arg passed with --num_layers
+    dropout: float = 0.2,           # CLI arg passed with --dropout
+    pad_idx: int = 0,               # CLI arg passed with --pad_idx
+    max_vocab: int = 5000,          # CLI arg passed with --max_vocab
 ):
 
     # set seed for reproducibility
@@ -62,6 +69,7 @@ def run_train(
             val_split=val_split,
             max_len=max_len,
             batch_size=batch_size,
+            max_vocab=max_vocab,
             tokenized_output_path=tokenized_output_path,
             use_char_ngrams=use_char_ngrams,
             ngram_min=ngram_min,
@@ -94,11 +102,17 @@ def run_train(
     if device.type == "cuda":
         print(f"GPU device name: {torch.cuda.get_device_name(0)}, count: {torch.cuda.device_count()}")
 
-    # initialize model (from src/model.py)
-    ## this automatically uses the default values for embed_dim, hidden_dim, num_layers, dropout, use_attention, etc.
+    # initialize model (from src/model.py) with defaults
+    ## defaults for model hparams match src/model.py when wrapper omits them from arguments
     model = EmotionalBiLSTM(
         vocab_size=len(word2id),
         output_dim=len(id2label),
+        embed_dim=embed_dim,
+        hidden_dim=hidden_dim,
+        num_layers=num_layers,
+        dropout=dropout,
+        pad_idx=pad_idx,
+        use_attention=use_attention,
     ).to(device)
 
     # initialize optimizer with weight decay
@@ -206,6 +220,7 @@ def run_train(
         "dropout": model.dropout,
         "output_dim": model.output_dim,
         "pad_idx": model.pad_idx,
+        "max_vocab": max_vocab,
         },
         checkpoint_path,
     )

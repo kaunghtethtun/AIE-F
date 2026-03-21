@@ -13,11 +13,11 @@ from src.eliza import Eliza
 from typing import Literal  
 
 
-# function to run interactive chat inference
+# function to run interactive chat inference (see group2-hybrid-eliza.py --mode chat)
 def run_chat(
-    checkpoint_path,  # passable from wrapper CLI
-    stopwords_path="../data/stopwords.txt",
-    language: Literal["mm", "en"] = "mm",
+    checkpoint_path,                         # CLI arg passed with --checkpoint_path
+    stopwords_path="../data/stopwords.txt",  # CLI arg passed with --stopwords_path
+    language: Literal["mm", "en"] = "mm",    # CLI arg passed with --language (choices: "mm", "en")
 ):
     # load model and preprocessing artifacts from checkpoint
     (

@@ -82,14 +82,14 @@ def predict_texts(
     return pred_ids, pred_labels, pred_scores
 
 
-# function to run evaluation on a dataset
+# function to run evaluation on a dataset (see group2-hybrid-eliza.py --mode eval)
 def run_eval(
-    checkpoint_path,    # passable from arguments in CLI
-    data_csv,           # passable from arguments in CLI
-    batch_size,         # passable from arguments in CLI
-    stopwords_path="../data/stopwords.txt",
-    text_col="text",
-    label_col="label",
+    checkpoint_path,                # CLI arg passed with --checkpoint_path
+    data_csv,                       # CLI arg passed with --data_path
+    batch_size,                     # CLI arg passed with --batch_size
+    stopwords_path="../data/stopwords.txt",  # CLI arg passed with --stopwords_path
+    text_col="text",                # CLI arg passed with --text_col
+    label_col="label",              # CLI arg passed with --label_col
 ):
     # load model and preprocessing artifacts from checkpoint
     model, word2id, id2label, max_len, use_char_ngrams, ngram_min, ngram_max = (
