@@ -1,0 +1,45 @@
+{
+  "name": "dataset-translator",
+  "version": "1.0.4",
+  "description": "CLI tool for translating English datasets into Burmese using the Gemini API",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "dataset-translator": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "keywords": [
+    "cli",
+    "translator",
+    "dataset",
+    "nlp",
+    "burmese",
+    "gemini",
+    "ai",
+    "machine-learning"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sai-zack-dev/dataset-translator.git"
+  },
+  "homepage": "https://github.com/sai-zack-dev/dataset-translator",
+  "bugs": {
+    "url": "https://github.com/sai-zack-dev/dataset-translator/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "chalk": "^5.3.0",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "ora": "^8.0.0",
+    "prompts": "^2.4.2"
+  }
+}
